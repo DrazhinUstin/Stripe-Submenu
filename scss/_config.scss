@@ -1,0 +1,54 @@
+$black: rgb(20, 18, 18);
+$trans-black: rgba(0, 0, 0, 0.5);
+$white: rgb(255, 255, 255);
+$blue: rgb(1, 73, 167);
+$dark-blue: #0a2540;
+$red: rgb(219, 25, 25);
+$violet: rgb(161, 10, 154);
+$gold: rgb(194, 160, 11);
+$space: 0.1rem;
+$radius: 1rem;
+$shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+$transition: all 0.4s ease;
+
+%grid-center {
+    display: grid;
+    place-items: center;
+}
+
+%flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+%flex-inline-center {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%menu-links {
+    a {
+        @extend %flex-inline-center;
+        column-gap: 0.5rem;
+        color: $black;
+        i {
+            color: $blue;
+        }
+        &:hover {
+            color: $red;
+        }
+        &:hover i {
+            color: $red;
+        }
+    }
+}
+
+@mixin setPosition ($position, $top, $left, $right, $translate) {
+    position: $position;
+    top: $top;
+    left: $left;
+    right: $right;
+    transform: $translate;
+}

@@ -1,0 +1,39 @@
+.nav {
+    height: 5rem;
+    @extend %flex-between;
+    user-select: none;
+}
+
+.logo {
+    @extend %flex-between;
+    button {
+        display: none;
+        color: $white;
+        &:hover {
+            color: $blue;
+        }
+    }
+}
+
+.nav-menu {
+    display: flex;
+    column-gap: 2rem;
+    li {
+        padding: 0.7rem 0;
+        color: $white;
+        font-size: 1.2rem;
+        letter-spacing: $space;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 100%;
+        button {
+            display: block;
+        }
+    }
+    .nav-menu, .nav-menu ~ a {
+        display: none;
+    }
+}

@@ -1,0 +1,100 @@
+/************************************** IMPORTS **************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import 'config';
+@import 'nav';
+@import 'hero';
+@import 'sidebar';
+@import 'submenu';
+
+/************************************** GLOBAL STYLES **************************************/
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+* {
+    font-family: 'Noto Sans', sans-serif;
+    &::selection {
+        background-color: $blue;
+        color: $white;
+    }
+}
+body {
+    background-color: $white;
+    color: $black;
+}
+h1, h4 {
+    color: $dark-blue;
+    line-height: 1.25;
+    text-transform: capitalize;
+    letter-spacing: $space;
+}
+h1 {
+    font-size: 3rem;
+}
+p {
+    line-height: 1.5;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+    text-transform: capitalize;
+    letter-spacing: $space;
+}
+img {
+    display: block;
+}
+button {
+    line-height: 1;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/************************************** COMMON CLASSES **************************************/
+
+.center {
+    max-width: 1200px;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.btn {
+    height: 2rem;
+    padding: 0 1rem;
+    border-radius: $radius;
+    @extend %flex-inline-center;
+    background-color: $dark-blue;
+    color: $white;
+    transition: $transition;
+    &:hover {
+        background-color: $blue;
+    }
+}
+
+.icon-btn {
+    border: none;
+    background-color: inherit;
+    font-size: 1.4rem;
+    transition: $transition;
+}

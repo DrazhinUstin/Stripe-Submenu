@@ -1,0 +1,95 @@
+.sidebar-wrapper {
+    @include setPosition(fixed, 0, 0, unset, unset);
+    width: 100%;
+    height: 100%;
+    @extend %grid-center;
+    background-color: $trans-black;
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition;
+    z-index: 99;
+    &.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    &.show .sidebar {
+        transform: scale(1);
+    }
+}
+
+.sidebar {
+    position: relative;
+    width: 90vw;
+    height: 90vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    row-gap: 2rem;
+    padding: 2rem;
+    border-radius: $radius;
+    background-color: $white;
+    transform: scale(0);
+    transition: $transition;
+    h4 {
+        margin-bottom: 1.5rem;
+        text-align: left;
+    }
+    &:last-child {
+        text-align: center;
+    }
+}
+
+.close-sidebar-btn {
+    @include setPosition(absolute, 0.7rem, unset, 0.7rem, unset);
+    color: $red;
+    &:hover {
+        transform: rotate(180deg);
+    }
+}
+
+.sidebar-container {
+    overflow-y: auto;
+    article {
+        margin-bottom: 2rem;
+    }
+    article:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.sidebar-menu {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem 2rem;
+    li {
+        justify-self: left;
+    }
+    @extend %menu-links;
+    &.violet {
+        i {
+            color: $violet;
+        }
+    }
+    &.gold {
+        i {
+            color: $gold;
+        }
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .sidebar-wrapper {
+        display: none;
+    }    
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar {
+        padding: 2rem 1rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .sidebar-menu {
+        grid-template-columns: 1fr;
+    }
+}

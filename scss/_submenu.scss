@@ -1,0 +1,49 @@
+.submenu {
+    @include setPosition(fixed, 5rem, 50%, unset, unset);
+    transform: translateX(-50%) scale(0);
+    padding: 2rem;
+    border-radius: $radius;
+    background-color: $white;
+    box-shadow: $shadow;
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition;
+    z-index: 99;
+    &.show {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+        visibility: visible;
+    }
+    h4 {
+        margin-bottom: 1.5rem;
+    }
+    &::after {
+        content: '';
+        @include setPosition(absolute, -0.4rem, 50%, unset, translateX(-50%));
+        border-left: 0.4rem solid transparent;
+        border-right: 0.4rem solid transparent;
+        border-bottom: 0.4rem solid $white;
+    }
+}
+
+.submenu-list {
+    display: grid;
+    grid-gap: 1.5rem 2rem;
+    @extend %menu-links;
+    &.violet {
+        i {
+            color: $violet;
+        }
+    }
+    &.gold {
+        i {
+            color: $gold;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .submenu {
+        display: none;
+    }
+}
